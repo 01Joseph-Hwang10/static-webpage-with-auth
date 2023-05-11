@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "lib": ["ES2021"],
+      "declaration": false,
+      "checkJs": false,
+      "esModuleInterop": true,
+      "allowJs": true,
+      "baseUrl": ".",
+      "outDir": "./dist",
+      "strict": false,
+      "skipLibCheck": true,
+      "skipDefaultLibCheck": true
+    },
+    "include": ["server/**/*"],
+    "exclude": [
+      "node_modules",
+    ]
+  }
+  

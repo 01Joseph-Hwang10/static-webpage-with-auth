@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "build": "npx typedoc"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.4"
+    }
+}

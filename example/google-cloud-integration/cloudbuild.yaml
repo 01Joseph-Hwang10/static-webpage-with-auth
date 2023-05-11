@@ -1,0 +1,57 @@
+steps:
+  # Pull the cached image
+  - name: "gcr.io/cloud-builders/docker"
+    entrypoint: "bash"
+    args: ["-c", "docker pull ${_IMAGE_URL}:latest || exit 0"]
+
+  # Build docker image for sprintio-api
+  - name: gcr.io/cloud-builders/docker
+    id: Build
+    args:
+      - build
+      - "--cache-from=${_IMAGE_URL}:latest"
+      - "--network=cloudbuild"
+      - "-t"
+      - "${_IMAGE_URL}:${COMMIT_SHA}"
+      - "-t"
+      - "${_IMAGE_URL}:latest"
+      - .
+      - "-f"
+      - Dockerfile # Change this to your Dockerfile path if needed
+
+  # Push the image
+  - name: gcr.io/cloud-builders/docker
+    id: Push
+    args:
+      - push
+      - --all-tags
+      - ${_IMAGE_URL}
+
+  # Deploy the image
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk:slim"
+    id: Deploy
+    entrypoint: gcloud
+    args:
+      - run
+      - services
+      - update
+      - ${_SERVICE_NAME}
+      - "--platform=managed"
+      - "--image=${_IMAGE_URL}:${COMMIT_SHA}"
+      - "--region=${_DEPLOY_REGION}"
+      - "--quiet"
+
+images:
+  - ${_IMAGE_URL}
+
+options:
+  substitutionOption: ALLOW_LOOSE
+
+substitutions:
+  _GCR_HOSTNAME: <GCR_HOSTNAME>
+  _IMAGE_URL: ${_GCR_HOSTNAME}/${PROJECT_ID}/${REPO_NAME}/${_SERVICE_NAME}
+  _DEPLOY_REGION: <DEPLOY_REGION>
+  _SERVICE_NAME: <SERVICE_NAME>
+
+tags:
+  - ${_SERVICE_NAME}

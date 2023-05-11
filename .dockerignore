@@ -1,0 +1,9 @@
+.gitignore
+LICENSE
+README.md
+.env.sample
+.github
+.git
+.vscode
+example
+Dockerfile

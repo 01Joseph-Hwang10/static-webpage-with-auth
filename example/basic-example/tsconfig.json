@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "declaration": false,
+        "checkJs": false,
+        "strict": false,
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+    },
+    "include": ["src/**/*"],
+    "exclude": [
+        "node_modules",
+    ]
+}

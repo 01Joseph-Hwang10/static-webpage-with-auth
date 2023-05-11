@@ -1,0 +1,24 @@
+{
+    "name": "static-webpage-with-auth",
+    "version": "1.0.0",
+    "author": "01Joseph-Hwang10 <joseph95501@gmail.com>",
+    "homepage": "https://github.com/01Joseph-Hwang10/static-webpage-with-auth",
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "start": "node dist/index.js",
+        "start:dev": "NODE_ENV=dev node dist/index.js"
+    },
+    "dependencies": {
+        "cookie-parser": "^1.4.6",
+        "crypto-js": "^4.1.1",
+        "dayjs": "^1.11.7",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "firebase-admin": "^11.7.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.1.2",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.8.4"
+    }
+}
