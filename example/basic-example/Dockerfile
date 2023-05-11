@@ -22,7 +22,7 @@ COPY . .
 # Build source code
 RUN npm run build
 
-FROM josephhwang02/static-webpage-with-auth:latest
+FROM josephhwang02/static-webpage-with-auth
 
 # Set working directory
 WORKDIR /app

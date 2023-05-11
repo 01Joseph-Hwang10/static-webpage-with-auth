@@ -8,6 +8,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - linux/amd64
+          - linux/arm/v6
+          - linux/arm/v7
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -26,5 +33,6 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
+          platforms: ${{ matrix.platform }}
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/static-webpage-with-auth:latest
