@@ -25,6 +25,7 @@ RUN npm run build
 FROM josephhwang02/static-webpage-with-auth
 
 # Set working directory
+# This is mandatory as the base image sets it to `/app`
 WORKDIR /app
 
 # Copy from build image
