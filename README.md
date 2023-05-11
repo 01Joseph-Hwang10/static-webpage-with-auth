@@ -25,3 +25,7 @@ Create a `.env` file at the root directory and fill in the values.
 
 Build static pages with your preferred static site generator and run the docker image with the source files generated.
 See [Basic Dockerfile Example](./example/basic-example/Dockerfile) for more details.
+
+# Contribution
+
+Any contribution is welcome. Please feel free to open an issue or a pull request.
