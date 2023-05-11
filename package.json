@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "author": "01Joseph-Hwang10 <joseph95501@gmail.com>",
     "homepage": "https://github.com/01Joseph-Hwang10/static-webpage-with-auth",
+    "description": "Serves static webpage with authentication implemented firebase authentication.",
     "scripts": {
         "build": "tsc -p tsconfig.json",
         "start": "node dist/index.js",
