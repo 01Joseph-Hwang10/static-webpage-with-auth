@@ -1,6 +1,6 @@
 # Static Webpage with Authentication
 
-Serves static webpage with authentication implemented firebase authentication.
+Serves static webpage with authentication implemented with firebase authentication.
 
 # Usage
 
